@@ -3,11 +3,9 @@ session_start();
 include('common/init.php');
 ?>
 <html>
-<head>
-<title>选择战斗</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
-</head>
+<?php get_head('选择战斗');?>
 <body>
+<div id="wrapper">
 <?php
 echo '<h1>副本信息</h1>';
 
@@ -46,5 +44,6 @@ if ($result){
 }
 ?>
 <p><a href="index.php">返回首页</a></p>
+</div><!--end of wrapper-->
 </body>
 </html>

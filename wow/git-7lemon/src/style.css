@@ -1,0 +1,10 @@
+*{ padding:0; margin:0 }
+
+#wrapper { width: 950px; margin: 0 auto }
+#main{ width: 950px; margin:20 auto}
+#login_box{ width: 400px; height: 200px; margin-right:50px; float: right }
+#signup_box{ width: 400px; height: 200px; margin-left:50px }
+h1{ font-size:30px; padding: 10px; margin-left:10px }
+tr, td{ padding: 3px }
+table{ margin-top: 10px; margin-left:10px }
+p.welcom{ padding-left: 50px; }

@@ -1,6 +1,6 @@
 <?php
-
-$db = new mysqli('localhost', 'root', 'root', 'web_test');
+include('function.php');
+$db = new mysqli($__host_, $__user_, $__password_, $__database_);
 if (mysqli_connect_errno()){
 	echo "Error: Could not connect to database.";
 	exit;

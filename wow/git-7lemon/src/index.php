@@ -4,8 +4,19 @@ include('common/init.php');
 
 $input_error = FALSE;
 $login_error = FALSE;
-$check_error = $_GET['check'];
-$login_name = "";
+$check_error = FALSE;
+$error_msg = "";
+if (isset($_GET[ 'check'])){
+    $check = $_GET['check'];
+    if ($check = 'blank') {
+        $error_msg = '用户名或密码不能为空'; 
+        $check_error = TRUE;
+    } 
+    else if ($check == 'exist') {
+        $error_msg = '用户名或邮箱被占用'; 
+        $check_error = TRUE;
+    }
+}
 
 if(isset($_POST[ 'username']) && isset($_POST[ 'password'])){
     if ($_POST[ 'username'] != "" && $_POST[ 'password'] != "")
@@ -41,38 +52,16 @@ if(isset($_POST[ 'username']) && isset($_POST[ 'password'])){
 }
 ?>
 <html>
-<head>
-<title>恶搞迷你WOW</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
-</head>
+<?php get_head('首页'); ?>
 <body>
-<h1>恶搞迷你WOW</h1>
-<p>欢迎来到迷你艾泽拉斯世界</p>
-<?php if(!isset($_SESSION['user'])){ ?>
-<h3>请先登录：</h3>
-<?php if ($input_error || $login_error) echo "<p>$error_msg</p>\n"; ?>
-<form action="index.php" method="POST">
-    <table>
-    <tr><td>用户名</td><td><input type="text" name="username" value="" /></td></tr>
-    <tr><td>密码</td><td><input type="password" name="password" value="" /></td></tr>
-    <tr><td><input type="submit" name="login" value="登录" /></td></tr>
-    </table>
-</form>
-
-<h3>或者注册一个新用户：</h3>
-<?php 
-if ($check_error == 'blank') {echo "<p>用户名或密码不能为空</p>\n";} 
-else if ($check_error == 'exist') {echo "<p>用户名或邮箱被占用</p>\n";}?>
-<form action="signup.php" method="POST">
-    <table>
-    <tr><td>用户名</td><td><input type="text" name="username" value="" /></td></tr>
-    <tr><td>昵称</td><td><input type="text" name="name" value="" /></td></tr>
-    <tr><td>密码</td><td><input type="password" name="password" value="" /></td></tr>
-    <tr><td>邮箱</td><td><input type="text" name="email" value="" /></td></tr>
-    <tr><td><input type="submit" name="signup" value="注册" /></td></tr>
-</table>
-</form>
-<?php 
+<div id="wrapper">
+<h1>迷你WOW</h1>
+<p class="welcom">欢迎来到迷你艾泽拉斯世界</p>
+<?php if(!isset($_SESSION['user'])){
+    echo '<div id="main">'."\n";
+    get_login_box(($input_error || $login_error), $error_msg);
+    get_signup_box($check_error, $error_msg);
+    echo '</div><!--End Of main-->'."\n";
 }
 else{
     $login_name = $_SESSION['user']['name'];
@@ -90,6 +79,6 @@ else{
 <p><a href="logout.php">退出</a></p>
 <?php }?>
 <p>战斗力无限提升版：按照某种算法判定输赢。战斗力越高，胜利的几率越高，但也有可能失败。<br>有可能打败战斗力相对很高的BOSS，也可能被很弱的BOSS狂扁。</p>
-
+</div><!--end of wrapper-->
 </body>
 </html>

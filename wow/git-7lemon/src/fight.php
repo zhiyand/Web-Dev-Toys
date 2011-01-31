@@ -3,11 +3,9 @@ session_start();
 include('common/init.php');
 ?>
 <html>
-<head>
-<title>战斗</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
-</head>
+<?php get_head('战斗结果');?>
 <body>
+<div id="wrapper">
 <?php
 echo '<h1>战斗结果</h1>';
 $user_id = $_SESSION['user']['userid'];
@@ -66,5 +64,6 @@ else{
 
 ?>
 
+</div><!--end of wrapper-->
 </body>
 </html>

@@ -1,21 +1,14 @@
+<?php
+session_start();
+include('common/init.php');
+?>
+<?php get_head('数据库');?>
 <html>
-<head>
-<title>掉落数据库</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
-</head>
 <body>
 
+<div id="wrapper">
 <?php
-$db = new mysqli('localhost', 'root', 'flyingsoul', 'web_test');
-if (mysqli_connect_errno()){
-	echo "Error: Could not connect to database.";
-	exit;
-}
-
 echo '<h1>副本信息</h1>'."\n".'<p>';
-$db->query("SET NAMES 'utf8'");
-$db->query("SET CHARACTER_SET_CLIENT=utf8");
-$db->query("SET CHARACTER_SET_RESULTS=uft8");
 $query = "select
           underground_sheet.underground_id, underground_sheet.name,
           boss_sheet.boss_id, boss_sheet.boss_name, equipment_sheet.equipment_name,
@@ -60,5 +53,6 @@ if ($result){
 }
 ?>
 
+</div><!--end of wrapper-->
 </body>
 </html>
