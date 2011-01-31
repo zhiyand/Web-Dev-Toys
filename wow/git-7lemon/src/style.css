@@ -11,3 +11,11 @@ table{ margin-top: 10px; margin-left:10px }
 p.welcom{ padding-left: 50px; }
 p.err_msg{ font-size:12px; color:red; padding-left:65px; padding-top:5px}
 input.submit{ border:none; font-size:18px; width:60px; height: 24px; margin: 10px 20px 0 180px}
+
+.actions, .chose, .data, .fight, .logout{ width:900px; margin: 10px 0px 20px 25px; padding-top:20px; padding-bottom:20px; background-color:#fff }
+.actions input{ border:none; font-size: 15px; width:150px; height: 20px}
+.actions p{ margin: 10px 0 0 10px  }
+p.info, p.user_name, p.quit{ margin-right:25px; text-align:right; padding-bottom:15px; }
+
+.chose p, .data p, .fight p, .logout p{ margin:10px 0px 10px 40px;  }
+input.chose_fight{ border:none; font-size: 15px; width:150px; height: 20px}

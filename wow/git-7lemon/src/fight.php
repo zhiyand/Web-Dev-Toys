@@ -6,8 +6,10 @@ include('common/init.php');
 <?php get_head('战斗结果');?>
 <body>
 <div id="wrapper">
+<h1>战斗结果</h1>
+<div id="main">
+<div class="fight">
 <?php
-echo '<h1>战斗结果</h1>';
 $user_id = $_SESSION['user']['userid'];
 $post_boss_id = $_POST['boss_id'];
 $victory = FALSE;
@@ -44,7 +46,6 @@ if($victory){
         echo "<h3>你打败了".$row['boss_name']."</h3>\n";
         echo "<p>获得战利品：".$row['equipment_name']."</p>\n";
         echo "<p>战斗力提升". $row['power'] ."点</p>\n";
-        echo '<p><a href="index.php">返回首页</a></p>';
         $user_power += $row['power'];
         $_SESSION['user']['user_power'] = $user_power;
         $equipment_id = $row['equipment_id'];
@@ -59,11 +60,14 @@ if($victory){
         echo "<p>数据库访问出错，代码005</p>";    
 }
 else{
-    echo '<p>很不幸，战斗失败。<a href="index.php">返回首页</a></p>';
+    echo '<p>很不幸，战斗失败。</p>';
 }
 
 ?>
 
+</div><!--End Of fight-->
+</div><!--End Of main-->
+<p class="quit"><a href="index.php">返回首页</a></p>
 </div><!--end of wrapper-->
 </body>
 </html>

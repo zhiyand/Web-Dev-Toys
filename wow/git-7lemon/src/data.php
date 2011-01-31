@@ -7,8 +7,10 @@ include('common/init.php');
 <body>
 
 <div id="wrapper">
+<h1>副本信息</h1>
+<div id="main">
+<div class="data">
 <?php
-echo '<h1>副本信息</h1>'."\n".'<p>';
 $query = "select
           underground_sheet.underground_id, underground_sheet.name,
           boss_sheet.boss_id, boss_sheet.boss_name, equipment_sheet.equipment_name,
@@ -53,6 +55,9 @@ if ($result){
 }
 ?>
 
+</div><!--End Of data-->
+</div><!--End Of main-->
+<p class="quit"><a href="index.php">返回首页</a></p>
 </div><!--end of wrapper-->
 </body>
 </html>

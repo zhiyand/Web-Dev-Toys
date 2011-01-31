@@ -64,9 +64,11 @@ if(isset($_POST[ 'username']) && isset($_POST[ 'password'])){
     echo '</div><!--End Of main-->'."\n";
 }
 else{
+    echo '<div id="main">'."\n";
     $login_name = $_SESSION['user']['name'];
-    echo  '<p>'.$login_name.'，欢迎回来。</p>'."\n";?>
-<p>当前战斗力：<?php echo $_SESSION['user']['user_power']; ?></p>
+    echo  '<p class="user_name">'.$login_name.'，欢迎回来</p>'."\n";?>
+<p class="info">当前战斗力：<?php echo $_SESSION['user']['user_power']; ?></p>
+<div class="actions">
 <form action="shop.php" method="POST">
     <p>买装备：<input type="submit" name="enter" value="进入商城" /></p>
 </form>
@@ -76,8 +78,12 @@ else{
 <form action="data.php" method="POST">
     <p>副本信息：<input type="submit" name="enter" value="进入数据库" /></p>
 </form>
-<p><a href="logout.php">退出</a></p>
-<?php }?>
+</div><!--End Of actions-->
+<p class="quit"><a href="logout.php">退出</a></p>
+<?php
+    echo '</div><!--End Of main-->'."\n";
+}
+?>
 <p>战斗力无限提升版：按照某种算法判定输赢。战斗力越高，胜利的几率越高，但也有可能失败。<br>有可能打败战斗力相对很高的BOSS，也可能被很弱的BOSS狂扁。</p>
 </div><!--end of wrapper-->
 </body>

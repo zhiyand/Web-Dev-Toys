@@ -8,7 +8,8 @@ include('common/init.php');
 <div id="wrapper">
 <h1>副本信息</h1>
 <p class="welcom">选择你想挑战的BOSS，然后进入战斗<p>
-
+<div id="main">
+<div class="chose">
 <?php
 $query = "select
           underground_sheet.underground_id, underground_sheet.name,
@@ -40,11 +41,14 @@ if ($result){
             		echo $boss_radio.$row['boss_id'].'" />'.$row['boss_name']."（战斗力：".$row['boss_power']."）<br />\n";
         	}
 	}
-    echo "</p>\n<p>".'<input type="submit" value="进入战斗" /></p>'."\n";
+    echo "</p>\n<p>".'<input type="submit" class="chose_fight" value="进入战斗" /></p>'."\n";
     echo '</form>';
 }
+
 ?>
-<p><a href="index.php">返回首页</a></p>
+</div><!--End Of chose-->
+</div><!--End Of main-->
+<p class="quit"><a href="index.php">返回首页</a></p>
 </div><!--end of wrapper-->
 </body>
 </html>
