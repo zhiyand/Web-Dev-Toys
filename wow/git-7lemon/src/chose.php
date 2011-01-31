@@ -6,9 +6,10 @@ include('common/init.php');
 <?php get_head('选择战斗');?>
 <body>
 <div id="wrapper">
-<?php
-echo '<h1>副本信息</h1>';
+<h1>副本信息</h1>
+<p class="welcom">选择你想挑战的BOSS，然后进入战斗<p>
 
+<?php
 $query = "select
           underground_sheet.underground_id, underground_sheet.name,
           boss_sheet.boss_id, boss_sheet.boss_name, boss_sheet.boss_power 

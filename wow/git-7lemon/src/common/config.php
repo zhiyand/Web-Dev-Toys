@@ -3,7 +3,7 @@
 //Database config:
 $__host_ = 'localhost';
 $__user_ = 'root';
-$__password_ = 'password';
+$__password_ = 'flyingsoul';
 $__database_ = 'web_test';
 
 //Site config:

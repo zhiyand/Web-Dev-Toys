@@ -14,15 +14,15 @@ function get_head($__title_){
 
 function get_login_box($login_error, $error_msg){
     echo '<div id="login_box">'."\n".
-         '<h3>已有账号请登录：</h3>'."\n";
+         '<h3>已有账号？请登录：</h3>'."\n";
     if ($login_error)
-        echo "<p>$error_msg</p>\n";
+        echo '<p class="err_msg">'."$error_msg</p>\n";
     echo '<form action="index.php" method="POST">'."\n".
          "\t".'<table>'."\n".
          "\t".'<tr><td>用户名</td><td><input type="text" name="username" value="" /></td></tr>'."\n".
          "\t".'<tr><td>密码</td><td><input type="password" name="password" value="" /></td></tr>'."\n".
          "\t".'</table>'."\n".
-         "\t".'<input type="submit" name="login" value="登录" />'."\n".
+         "\t".'<input type="submit" name="login" class="submit" value="登录" />'."\n".
          '</form>'."\n".
          '</div><!--End Of login_box-->'."\n"
          ;
@@ -32,7 +32,7 @@ function get_signup_box($check_error, $error_msg){
     echo '<div id="signup_box">'."\n".
          "<h3>注册成为用户：</h3>\n";
     if ($check_error)
-        echo "<p>$error_msg</p>\n";
+        echo '<p class="err_msg">'."$error_msg</p>\n";
     echo '<form action="signup.php" method="POST">'."\n".
          "\t<table>\n".
          "\t".'<tr><td>用户名</td><td><input type="text" name="username" value="" /></td></tr>'."\n".
@@ -40,7 +40,7 @@ function get_signup_box($check_error, $error_msg){
          "\t".'<tr><td>密码</td><td><input type="password" name="password" value="" /></td></tr>'."\n".
          "\t".'<tr><td>邮箱</td><td><input type="text" name="email" value="" /></td></tr>'."\n".
          "\t</table>\n".
-         "\t".'<input type="submit" name="signup" value="注册" />'."\n".
+         "\t".'<input type="submit" name="signup" class="submit" value="注册" />'."\n".
          "</form>\n".
          "</div><!--End Of signup_box-->\n"
          ;

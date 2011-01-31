@@ -1,10 +1,13 @@
 *{ padding:0; margin:0 }
 
-#wrapper { width: 950px; margin: 0 auto }
+#wrapper { width: 950px; margin: 0 auto; background-color:#50aef0 }
 #main{ width: 950px; margin:20 auto}
-#login_box{ width: 400px; height: 200px; margin-right:50px; float: right }
-#signup_box{ width: 400px; height: 200px; margin-left:50px }
-h1{ font-size:30px; padding: 10px; margin-left:10px }
+#login_box{ width: 400px; height: 240px; margin-right:50px; background-color:#fff; float: right }
+#signup_box{ width: 400px; height: 240px; margin-left:50px; background-color:#fff }
+h1{ font-size:30px; padding: 10px; margin-left:10px; margin-top: 20px }
+h3{ font-size:18px; padding-top:10px; padding-left:10px }
 tr, td{ padding: 3px }
 table{ margin-top: 10px; margin-left:10px }
 p.welcom{ padding-left: 50px; }
+p.err_msg{ font-size:12px; color:red; padding-left:65px; padding-top:5px}
+input.submit{ border:none; font-size:18px; width:60px; height: 24px; margin: 10px 20px 0 180px}
