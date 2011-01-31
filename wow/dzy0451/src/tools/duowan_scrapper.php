@@ -58,7 +58,7 @@ if(isset($_POST['undercity_url']))
 		foreach($equipments as $one)
 		{
 			$name = preg_replace('/^[\d]+/i', '', $one[1]);
-			$find = "SELECT eq_name FROM `equipment` WHERE eq_name = '$name'";
+			$find = "SELECT id, eq_name FROM `equipment` WHERE eq_name = '$name'";
 			$r = mysql_query($find);
 
 			if(mysql_num_rows($r) > 0)
@@ -74,7 +74,6 @@ if(isset($_POST['undercity_url']))
 			$dropping_rel = "INSERT INTO `equipment_dropping`(equipment_id, boss_id, chance) 
 				VALUES('$equipment_id', '$boss_id', '{$one[6]}')";
 			mysql_query($dropping_rel);
-			}
 		}
 
 		$c++;
