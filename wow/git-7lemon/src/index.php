@@ -50,13 +50,16 @@ if(isset($_POST[ 'username']) && isset($_POST[ 'password'])){
         $db->close();
     }
 }
-?>
-<html>
-<?php get_head('首页'); ?>
-<body>
-<div id="wrapper">
-<?php get_header('迷你WOW','欢迎来到迷你艾泽拉斯世界');?>
-<?php if(!isset($_SESSION['user'])){
+
+$title = array(
+    'page' => '首页',
+    'h1' => '迷你WOW',
+    'intro' => '欢迎来到迷你艾泽拉斯世界',
+);
+
+get_header($title);
+
+if(!isset($_SESSION['user'])){
     echo '<div id="main">'."\n";
     get_login_box(($input_error || $login_error), $error_msg);
     get_signup_box($check_error, $error_msg);
@@ -84,6 +87,3 @@ else{
 }
 ?>
 <?php get_footer()?>
-</div><!--end of wrapper-->
-</body>
-</html>

@@ -1,12 +1,13 @@
 <?php
 session_start();
 include('common/init.php');
+$title = array(
+    'page' => '战斗结果',
+    'h1' => '战斗结果',
+    'intro' => '你们这是自寻死路！',
+    );
+get_header($title);
 ?>
-<html>
-<?php get_head('战斗结果');?>
-<body>
-<div id="wrapper">
-<?php get_header('战斗结果','你们这是自寻死路！');?>
 <div id="main">
 <div class="fight">
 <?php
@@ -70,7 +71,4 @@ else
 </div><!--End Of fight-->
 <p class="quit"><a href="index.php">返回首页</a></p>
 </div><!--End Of main-->
-<?php get_footer()?>
-</div><!--end of wrapper-->
-</body>
-</html>
+<?php get_footer();?>

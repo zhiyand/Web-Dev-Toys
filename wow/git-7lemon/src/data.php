@@ -1,13 +1,13 @@
 <?php
 session_start();
 include('common/init.php');
+$title = array(
+    'page' => '数据库',
+    'h1' => '副本信息',
+    'intro' => '副本中的BOSS，以及装备掉落',
+    );
+get_header($title);
 ?>
-<?php get_head('数据库');?>
-<html>
-<body>
-
-<div id="wrapper">
-<?php get_header('副本信息','装备掉落数据库');?>
 <div id="main">
 <div class="data">
 <?php
@@ -58,7 +58,4 @@ if ($result){
 </div><!--End Of data-->
 <p class="quit"><a href="index.php">返回首页</a></p>
 </div><!--End Of main-->
-<?php get_footer()?>
-</div><!--end of wrapper-->
-</body>
-</html>
+<?php get_footer();?>
