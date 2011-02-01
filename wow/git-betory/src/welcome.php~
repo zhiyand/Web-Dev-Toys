@@ -1,0 +1,37 @@
+Welcome <?php echo $_POST["name"]; ?>.<br>
+<?php
+    /* 连接选择数据库 */
+    $link = mysql_connect("localhost", "host", "")
+        or die("Could not connect : " . mysql_error()); 
+    print "Connected successfully";
+    mysql_query("set names 'gb2312'");
+    mysql_select_db("wow") or die("Could not select database");
+
+    /* 执行 SQL 查询 */
+    $query = "SELECT name,boss FROM game_copy";
+    $result = mysql_query($query) or die("Query failed : " . mysql_error()); 
+    /* 在 HTML 中打印结果 */
+    while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+        foreach ($line as $col_value) {
+            print "<br>$col_value<br>";
+        }
+    }
+    /* 释放资源 */
+    mysql_free_result($result);
+   echo "<br>----------------------------------------------------<br>";
+    /* 执行 SQL 查询 */
+    $query = "SELECT game_boss.name,game_boss.dropthing FROM game_boss,game_copy WHERE game_boss.copy = game_copy.name";
+    $result = mysql_query($query) or die("Query failed : " . mysql_error()); 
+    /* 在 HTML 中打印结果 */
+    while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+        foreach ($line as $col_value) {
+            print "<br>$col_value<br>\n";
+        }
+    }
+    /* 释放资源 */
+    mysql_free_result($result);
+    /* 断开连接 */
+    mysql_close($link);
+?> 
+
+
