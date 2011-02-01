@@ -6,8 +6,7 @@ include('common/init.php');
 <?php get_head('选择战斗');?>
 <body>
 <div id="wrapper">
-<h1>副本信息</h1>
-<p class="welcom">选择你想挑战的BOSS，然后进入战斗<p>
+<?php get_header('副本信息','选择你想挑战的BOSS，然后进入战斗');?>
 <div id="main">
 <div class="chose">
 <?php
@@ -47,8 +46,9 @@ if ($result){
 
 ?>
 </div><!--End Of chose-->
-</div><!--End Of main-->
 <p class="quit"><a href="index.php">返回首页</a></p>
+</div><!--End Of main-->
+<?php get_footer()?>
 </div><!--end of wrapper-->
 </body>
 </html>

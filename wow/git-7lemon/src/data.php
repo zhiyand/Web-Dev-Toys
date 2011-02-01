@@ -7,7 +7,7 @@ include('common/init.php');
 <body>
 
 <div id="wrapper">
-<h1>副本信息</h1>
+<?php get_header('副本信息','装备掉落数据库');?>
 <div id="main">
 <div class="data">
 <?php
@@ -56,8 +56,9 @@ if ($result){
 ?>
 
 </div><!--End Of data-->
-</div><!--End Of main-->
 <p class="quit"><a href="index.php">返回首页</a></p>
+</div><!--End Of main-->
+<?php get_footer()?>
 </div><!--end of wrapper-->
 </body>
 </html>

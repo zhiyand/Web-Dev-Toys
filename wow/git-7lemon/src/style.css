@@ -1,21 +1,32 @@
 *{ padding:0; margin:0 }
 
 #wrapper { width: 950px; margin: 0 auto; background-color:#50aef0 }
-#main{ width: 950px; margin:20 auto}
+#main, #header, #footer{ width: 950px; margin:10px auto; background-color:#50aef0; float:left }
+#main{ margin: 0 auto }
+#header{ margin-bottom: 0 }
+#footer{ margin-top:0 }
 #login_box{ width: 400px; height: 240px; margin-right:50px; background-color:#fff; float: right }
-#signup_box{ width: 400px; height: 240px; margin-left:50px; background-color:#fff }
-h1{ font-size:30px; padding: 10px; margin-left:10px; margin-top: 20px }
+#signup_box{ width: 400px; height: 240px; margin-left:50px; background-color:#fff; float: left }
+h1{ font-size:30px; padding: 10px; margin-left:10px }
 h3{ font-size:18px; padding-top:10px; padding-left:10px }
 tr, td{ padding: 3px }
 table{ margin-top: 10px; margin-left:10px }
-p.welcom{ padding-left: 50px; }
-p.err_msg{ font-size:12px; color:red; padding-left:65px; padding-top:5px}
 input.submit{ border:none; font-size:18px; width:60px; height: 24px; margin: 10px 20px 0 180px}
 
-.actions, .chose, .data, .fight, .logout{ width:900px; margin: 10px 0px 20px 25px; padding-top:20px; padding-bottom:20px; background-color:#fff }
+.actions, .chose, .data, .fight, .logout{ width:900px; margin-left: 25px; padding-top:20px; padding-bottom:20px; background-color:#fff }
 .actions input{ border:none; font-size: 15px; width:150px; height: 20px}
 .actions p{ margin: 10px 0 0 10px  }
-p.info, p.user_name, p.quit{ margin-right:25px; text-align:right; padding-bottom:15px; }
-
+p.info, p.user_name, p.quit{ margin-right:25px; text-align:right; padding-bottom:10px; }
+p.intro{ font-size:15px; margin:10px 0px 0px 40px; padding-bottom:20px }
+p.welcome{ padding-left: 50px; }
+p.err_msg{ font-size:12px; color:red; padding-left:65px; padding-top:5px}
 .chose p, .data p, .fight p, .logout p{ margin:10px 0px 10px 40px;  }
 input.chose_fight{ border:none; font-size: 15px; width:150px; height: 20px}
+
+#header_logo{ margin: 20px 20px 20px 50px; width:400px; float:left }
+#header_menu{ margin: 40px 50px 40px 20px; padding:10px 20px 10px 20px; background-color:#fff; float:right }
+.menu, .menu ul{ line-height: 1; margin: 0; padding: 0 }
+.menu li{ display: inline; padding-left:15px }
+ul { list-style-type: none }
+.menu a:link, .menu a:visited, .menu a:hover, .menu a:active{ color:#000; text-decoration:none}
+.menu a:hover{ color:#64aada; }

@@ -55,8 +55,7 @@ if(isset($_POST[ 'username']) && isset($_POST[ 'password'])){
 <?php get_head('首页'); ?>
 <body>
 <div id="wrapper">
-<h1>迷你WOW</h1>
-<p class="welcom">欢迎来到迷你艾泽拉斯世界</p>
+<?php get_header('迷你WOW','欢迎来到迷你艾泽拉斯世界');?>
 <?php if(!isset($_SESSION['user'])){
     echo '<div id="main">'."\n";
     get_login_box(($input_error || $login_error), $error_msg);
@@ -84,7 +83,7 @@ else{
     echo '</div><!--End Of main-->'."\n";
 }
 ?>
-<p>战斗力无限提升版：按照某种算法判定输赢。战斗力越高，胜利的几率越高，但也有可能失败。<br>有可能打败战斗力相对很高的BOSS，也可能被很弱的BOSS狂扁。</p>
+<?php get_footer()?>
 </div><!--end of wrapper-->
 </body>
 </html>
