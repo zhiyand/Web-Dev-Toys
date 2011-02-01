@@ -1,0 +1,34 @@
+恶搞迷你WOW：
+
+2011.1.30
+==================
+第一个版本：
+战斗力无限提升版。顾名思义，角色的战斗力可以随着击杀BOSS获得提升战斗力的装备而无限提升。也就是说，数据库中没有设置用户和装备关联的表，而是在用户获得战利品后直接将战利品提供的战斗力加到用户的战斗力属性上。因此，每当用户获胜并获得提升战斗力的装备，用户的战斗力即得到提升。
+
+战斗结果算法：
+float A = 用户战斗力 / （用户战斗力 + BOSS战斗力）
+float B = 0至1的浮点随机数
+若A > B 则判定用户取得战斗胜利，随机获得一件战利品。所以，用户战斗力越高，取胜的几率越高。获胜或者失败不完全取决于战斗力高低。
+
+装备掉落算法：
+装备关联表中存储了两个float字段rate1，rate2
+PHP程序生成一个浮点随机数A，如果A >= rate1 && A < rate2，则判定掉落此装备。
+一个BOSS包含的所有装备的(rate1,rate2)区间无交集，且0 <= rate1 < rate2 <= 1。
+
+用户信息的存储：
+用户名username，昵称name，密码password，邮箱email可以为任意字符串，不进行字符串检查。username字段，name字段，email字段先执行addslashes()后存入数据库，取出时执行stripshashes()后显示。password字段进行sha1()加密。新建用户的默认战斗力为2000。执行db.sql后导入默认用户abc，密码abc。
+
+数据库结构：
+BOSS信息表：boss_sheet
+    |boss_id|underground_id|boss_name|boss_power|
+装备信息表：equipment_sheet
+    |equipment_id|type|power|equipment_name|
+装备关联表（与BOSS关联）：eq_relate
+    |boss_id|equipment_id|rate1|rate2|
+地下城信息表：underground_sheet
+    |underground_id|name|mode|description|
+用户信息表：users
+    |userid|username|name|password|email|user_power|
+    
+样式：
+未提供该版本的CSS样式
