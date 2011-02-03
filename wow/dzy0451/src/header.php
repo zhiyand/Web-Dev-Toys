@@ -5,10 +5,11 @@
 		<title>The web mini WOW</title> 
 		<link rel="stylesheet" href="style.css" media="all" />
 	</head>
-	<body><div id="wrap">
+	<body>
+		<div id="wrap">
 			<ul id="nav">
-<li>				<a href="../index.html">首页</a></li>
-<li>				<a href="../doc/readme.txt">文档</a></li>
-<li>				<a href="../src/city.php">开始游戏</a></li>
-<li>				<a href="../src/list.php">查看数据</a></li>
+				<li><a href="../index.html">首页</a></li>
+				<li><a href="../doc/readme.txt">文档</a></li>
+				<li><a href="../src/city.php">开始游戏</a></li>
+				<li><a href="../src/list.php">查看数据</a></li>
 			</ul>
