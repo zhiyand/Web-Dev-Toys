@@ -12,6 +12,7 @@ $__site_name_ = '迷你WOW';
 $__site_encode_ = 'utf8';
 $__site_css_ = 'style.css';
 $__site_favicon_ = 'favicon.ico';
+$__site_root_ = dirname(__FILE__).'/';
 
 //Page
 $__page_[0]['name'] = '首页';

@@ -51,15 +51,15 @@ if (isset($_POST['boss_id'])){
             $user_power += $row['power'];
             $_SESSION['user']['user_power'] = $user_power;
             $equipment_id = $row['equipment_id'];
+            $query = "update users 
+                      set user_power = $user_power 
+                      where userid = $user_id";
+            $result2 = $db->query($query);
+            if (!$result2)
+                echo "<p>数据库访问出错，代码005</p>";    
         }
         else
             echo "<p>数据库访问出错，代码003</p>";
-        $query = "update users 
-              set user_power = $user_power 
-              where userid = $user_id";
-        $result = $db->query($query);
-        if (!$result)
-            echo "<p>数据库访问出错，代码005</p>";    
     }
     else
         echo '<p>很不幸，战斗失败。</p>';

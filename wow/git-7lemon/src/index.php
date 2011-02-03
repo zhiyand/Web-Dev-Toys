@@ -8,7 +8,7 @@ $check_error = FALSE;
 $error_msg = "";
 if (isset($_GET[ 'check'])){
     $check = $_GET['check'];
-    if ($check = 'blank') {
+    if ($check == 'blank') {
         $error_msg = '用户名或密码不能为空'; 
         $check_error = TRUE;
     } 
@@ -60,9 +60,12 @@ $title = array(
 get_header($title);
 
 if(!isset($_SESSION['user'])){
+    $error_type = array(
+        'login' => $input_error || $login_error,
+        'sign' => $check_error,
+        );
     echo '<div id="main">'."\n";
-    get_login_box(($input_error || $login_error), $error_msg);
-    get_signup_box($check_error, $error_msg);
+    get_login_box($error_type, $error_msg);
     echo '</div><!--End Of main-->'."\n";
 }
 else{
@@ -86,4 +89,4 @@ else{
     echo '</div><!--End Of main-->'."\n";
 }
 ?>
-<?php get_footer()?>
+<?php get_footer();?>

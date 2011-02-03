@@ -8,16 +8,15 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['name
         $name = addslashes(trim($_POST['name']));
         $password = sha1($_POST['password']);
         $email = addslashes(trim($_POST['email']));
-        
+
         $query = 'select * from users '
                 ."where username = '".$username."' "
-                ."and email = '".$email."'";
+                ."or email = '".$email."'";
         $result = $db->query($query);
-        if ($result->num_rows > 0){
+        if ($result){
             header("location:index.php?check=exist");
+            exit;
         }
-        else
-            echo '访问数据库时出错，代码001';
             
         $query = "insert into users (username, name, password, email, user_power) values 
                 ('".$username."', '".$name."','".$password."', '".$email."', 2000)";
