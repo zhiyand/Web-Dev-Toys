@@ -1,16 +1,17 @@
 <html>
-	<head>
-		<title>
-			World of warcraft
-		</title>
+<head>
+<title>Mini wow</title>
 </head>
 <body>
-	<img src="getin.png" width=1150  height=600>
-	<form action="welcome.php" method="post">
-		Enter your name: <input type="test" name="name" />
-		Enter your age: <input type="test" name="age" />
-		<input type="submit" />
-	</form>
-
+World Of Warcraft(mini)!<br>
+<img src="getin.png" width=1150  height=600>
+<form>
+username: 
+<input type="text" name="username">
+password: 
+<input type="text" name="password"><br>
+<input type="submit" value="Register">
+<input type="submit" value="Submit">
+</form>
 </body>
 </html>
