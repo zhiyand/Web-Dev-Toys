@@ -8,19 +8,19 @@ if (isset($_SESSION['user'])){
 }
 else
     header("location:index.php");
-?>
 
-<html>
-<?php get_head('登出');?>
-<body>
-<div id="wrapper">
-<h1>您已退出</h1>
+$title = array(
+    'page' => '退出',
+    'h1' => '您已登出',
+    'intro' => '愿风指引你的道路',
+    );
+get_header($title);
+
+?>
 <div id="main">
 <div class="logout">
 <p class="welcome">欢迎下次再来</p>
 </div>
-</div>
 <p class="quit"><a href="index.php">回到首页</a></p>
-</div><!--end of wrapper-->
-</body>
-</html>
+</div><!--End Of main-->
+<?php get_footer();?>

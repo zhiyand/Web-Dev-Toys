@@ -1,13 +1,15 @@
 <?php
 session_start();
 include('common/init.php');
+
+$title = array(
+    'page' => '选择战斗',
+    'h1' => '副本信息',
+    'intro' => '选择你想挑战的BOSS，然后进入战斗',
+    );
+get_header($title);
+
 ?>
-<html>
-<?php get_head('选择战斗');?>
-<body>
-<div id="wrapper">
-<h1>副本信息</h1>
-<p class="welcom">选择你想挑战的BOSS，然后进入战斗<p>
 <div id="main">
 <div class="chose">
 <?php
@@ -47,8 +49,6 @@ if ($result){
 
 ?>
 </div><!--End Of chose-->
-</div><!--End Of main-->
 <p class="quit"><a href="index.php">返回首页</a></p>
-</div><!--end of wrapper-->
-</body>
-</html>
+</div><!--End Of main-->
+<?php get_footer();?>
