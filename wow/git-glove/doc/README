@@ -1,0 +1,25 @@
+version：1.0（TBC）	by：Glove
+2011.2.4
+------------------------
+1.简易的wow小游戏，制作初期，目前只有少量的boss和装备
+
+2.用户只有注册并登录之后才能使用
+
+3.玩家/boss属性：目前只有hp这一项，玩家获得装备后会根据 装备等级*10 来增加自己的hp
+		玩家初始hp是500
+
+4.PK算法：玩家的血量除以boss的血量再加上一个1以内的随机数，如果大于1，则玩家胜利
+	--------user_hp/boss_hp + rndom(0)(1)
+	意思是当你的级别够高时，可以完胜小boss，即使是仰望不可及的Litch King，也一样有机会干掉。
+
+5.装备掉落：表中有装备的rate值，该值是0-1之间的一个浮点数，装备掉落是rate加上一个随机数，如果大于1则掉落
+
+6.mysql表:
+	一共有5个表
+	副本：copy:copy_id, name, difficulty, description
+	怪物：boss:boss_id, copy_id, name, hp
+	装备：equip:equip_id, type, rate
+	怪物和装备关系：rel_boss_equip:boss_id, equip_id
+	玩家装备关系：rel_users_equip:user_id, equip_id
+
+

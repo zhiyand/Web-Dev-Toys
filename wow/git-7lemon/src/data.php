@@ -28,7 +28,7 @@ $boss_id = 0;
 $boss_change = FALSE;
 $row_num =  $result->num_rows;
 if ($result){
-	for ($i=0; $i < $row_num; $i++){
+	for ($i=0; $i < $row_num; $i++){echo "copy_id 1 2==" . $copy_id. $row['copy_id'];
 		$row = $result->fetch_assoc();
 		if ($row['underground_id'] != $underground_id){
             	$underground_change = TRUE;
