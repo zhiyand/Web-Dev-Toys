@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include('common/init.php');
 
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['name'])){

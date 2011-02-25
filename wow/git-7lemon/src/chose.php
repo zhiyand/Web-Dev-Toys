@@ -1,24 +1,24 @@
 <?php
-session_start();
+
 include('common/init.php');
 
-$title = array(
+$headerData = array(
     'page' => '选择战斗',
     'h1' => '副本信息',
     'intro' => '选择你想挑战的BOSS，然后进入战斗',
     );
-get_header($title);
+get_header($headerData);
 
 ?>
 <div id="main">
 <div class="chose">
 <?php
 $query = "select
-          underground_sheet.underground_id, underground_sheet.name,
-          boss_sheet.boss_id, boss_sheet.boss_name, boss_sheet.boss_power 
-          from underground_sheet, boss_sheet 
-          where underground_sheet.underground_id = boss_sheet.underground_id 
-          order by underground_sheet.underground_id asc";
+          us.underground_id, us.name,
+          bs.boss_id, bs.boss_name, bs.boss_power 
+          from underground_sheet as us, boss_sheet as bs  
+          where us.underground_id = bs.underground_id 
+          order by us.underground_id asc";
 $result = $db->query($query);
 $underground_id = 0;
 $underground_change = TRUE;
@@ -49,6 +49,5 @@ if ($result){
 
 ?>
 </div><!--End Of chose-->
-<p class="quit"><a href="index.php">返回首页</a></p>
 </div><!--End Of main-->
 <?php get_footer();?>

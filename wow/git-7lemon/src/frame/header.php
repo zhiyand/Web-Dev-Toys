@@ -1,16 +1,15 @@
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset='<?php echo $__site_encode_; ?>'" />
-    <title><?php echo $title['page'].'|'.$__site_name_; ?></title>
-    <link rel="stylesheet" href="<?php echo $__site_url_.$__site_css_;?>" type="text/css" />
-    <link rel="shortcut icon" href="<?php echo $__site_url_.$__site_favicon_;?>" type="image/x-icon" />
+    <meta http-equiv="Content-Type" content="text/html; charset='utf8'" />
+    <title><?php echo $headerData['page'].'|'.SITE_NAME; ?></title>
+    <link rel="stylesheet" href="static/style.css" type="text/css" />
 </head>
 <body>
 <div id="wrapper">
 <div id="header">
     <div id="header_logo">
-        <h1><?php echo $title['h1']; ?></h1>
-        <p class="welcome"><?php echo $title['intro'];?></p>
+        <h1><?php echo $headerData['h1']; ?></h1>
+        <p class="welcome"><?php echo $headerData['intro'];?></p>
     </div><!--End Of header_logo-->
     <div id="header_menu">
         <ul id="menu" class="menu">
@@ -19,8 +18,13 @@ foreach($__page_ as $row){
     $url = $row['url'];
     $name = $row['name'];
 echo <<< menu
-        <li><a href="$__site_url_$url">$name</a></li>\n
+        <li><a href="$url">$name</a></li>\n
 menu;
+}
+
+if (isset($_SESSION['user']))
+{
+    echo '<li><a href="logout.php">退出</a></li>';
 }
 ?>
         </ul>

@@ -1,12 +1,12 @@
 <?php
 include 'config.php';
 
-function get_header($title){
-    global $__page_,$__site_name_, $__site_encode_, $__site_url_, $__site_favicon_, $__site_css_, $__site_root_;
-    if (isset($title))
+function get_header($headerData){
+    global $__page_;
+    if (isset($headerData))
         require_once dirname(__FILE__).'/../frame/header.php';
     else{
-        $title = array(
+        $headerData = array(
             'page' => '页面',
             'h1' => '神秘小屋',
             'intro' => '刚刚有一个神奇的声音穿过你的耳洞',

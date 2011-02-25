@@ -1,18 +1,10 @@
 <?php
 
-//Database config:
-$__host_ = 'localhost';
-$__user_ = 'root';
-$__password_ = 'flyingsoul';
-$__database_ = 'web_test';
+define( 'WEB_ROOT' , dirname(__FILE__) . '/../' );
 
 //Site config:
-$__site_url_ = 'http://127.0.0.1/wow/'; //example: 'http://abc.com/'
-$__site_name_ = '迷你WOW';
-$__site_encode_ = 'utf8';
-$__site_css_ = 'style.css';
-$__site_favicon_ = 'favicon.ico';
-$__site_root_ = dirname(__FILE__).'/';
+define( 'SITE_URL', 'http://127.0.0.1/wow/' );
+define( 'SITE_NAME', '迷你WOW' );
 
 //Page
 $__page_[0]['name'] = '首页';

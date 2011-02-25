@@ -1,12 +1,12 @@
 <?php
-session_start();
+
 include('common/init.php');
-$title = array(
+$headerData = array(
     'page' => '战斗结果',
     'h1' => '战斗结果',
     'intro' => '你们这是自寻死路！',
     );
-get_header($title);
+get_header($headerData);
 ?>
 <div id="main">
 <div class="fight">
@@ -16,10 +16,10 @@ if (isset($_POST['boss_id'])){
     $post_boss_id = $_POST['boss_id'];
     $victory = FALSE;
 
-    $query = "select boss_sheet.boss_power, users.user_power 
-          from boss_sheet, users 
-          where boss_sheet.boss_id = $post_boss_id 
-          and users.userid = $user_id";
+    $query = "select bs.boss_power, u.user_power 
+          from boss_sheet as bs, users as u 
+          where bs.boss_id = $post_boss_id 
+          and u.userid = $user_id";
     $result = $db->query($query);
     if($result){
         $row = $result->fetch_assoc();
@@ -35,12 +35,12 @@ if (isset($_POST['boss_id'])){
     if($victory){
         $rate = (float)rand(0,99) / 100;
         $query = "select
-          boss_sheet.boss_id, boss_sheet.boss_name, equipment_sheet.equipment_id,
-          equipment_sheet.equipment_name, equipment_sheet.power 
-          from boss_sheet, equipment_sheet, eq_relate
-          where boss_sheet.boss_id = $post_boss_id and eq_relate.boss_id = $post_boss_id
-          and eq_relate.equipment_id = equipment_sheet.equipment_id
-          and eq_relate.rate1 <= $rate and eq_relate.rate2 > $rate";
+          bs.boss_id, bs.boss_name, es.equipment_id,
+          es.equipment_name, es.power 
+          from boss_sheet as bs, equipment_sheet as es, eq_relate as er 
+          where bs.boss_id = $post_boss_id and er.boss_id = $post_boss_id
+          and er.equipment_id = es.equipment_id
+          and er.rate1 <= $rate and er.rate2 > $rate";
         $result = $db->query($query);
 
         if ($result){
@@ -69,6 +69,5 @@ else
 ?>
 
 </div><!--End Of fight-->
-<p class="quit"><a href="index.php">返回首页</a></p>
 </div><!--End Of main-->
 <?php get_footer();?>
