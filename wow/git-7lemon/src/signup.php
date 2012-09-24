@@ -13,7 +13,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['name
                 ."where username = '".$username."' "
                 ."or email = '".$email."'";
         $result = $db->query($query);
-        if ($result){
+        if ($result->num_rows){
             header("location:index.php?check=exist");
             exit;
         }
