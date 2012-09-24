@@ -1,6 +1,8 @@
 <?php
+session_start();
 include('function.php');
-$db = new mysqli($__host_, $__user_, $__password_, $__database_);
+
+$db = new mysqli('localhost', 'root', '', 'web_test');
 
 if (mysqli_connect_errno()){
 	echo "Error: Could not connect to database.";

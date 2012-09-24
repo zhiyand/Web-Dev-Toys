@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include('common/init.php');
 
 if (isset($_SESSION['user'])){
@@ -21,6 +21,5 @@ get_header($title);
 <div class="logout">
 <p class="welcome">欢迎下次再来</p>
 </div>
-<p class="quit"><a href="index.php">回到首页</a></p>
 </div><!--End Of main-->
 <?php get_footer();?>

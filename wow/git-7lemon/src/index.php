@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include('common/init.php');
 
 $input_error = FALSE;
@@ -51,13 +51,13 @@ if(isset($_POST[ 'username']) && isset($_POST[ 'password'])){
     }
 }
 
-$title = array(
+$headerData = array(
     'page' => '首页',
     'h1' => '迷你WOW',
     'intro' => '欢迎来到迷你艾泽拉斯世界',
 );
 
-get_header($title);
+get_header($headerData);
 
 if(!isset($_SESSION['user'])){
     $error_type = array(
@@ -74,17 +74,36 @@ else{
     echo  '<p class="user_name">'.$login_name.'，欢迎回来</p>'."\n";?>
 <p class="info">当前战斗力：<?php echo $_SESSION['user']['user_power']; ?></p>
 <div class="actions">
+<div class="acc">
 <form action="shop.php" method="POST">
-    <p>买装备：<input type="submit" name="enter" value="进入商城" /></p>
+    <table>
+        <tr>
+            <td>购买精良装备</td>
+            <td><input type="submit" name="enter" value="进入商城" /></td>
+            <td>我这的货物可是货真价实，童叟无欺</td>
+        </tr>
+    </table>
 </form>
 <form action="chose.php" method="POST">
-    <p>打怪兽：<input type="submit" name="enter" value="进入地下城" /></p>
+    <table>
+        <tr>
+            <td>讨伐罪恶BOSS</td>
+            <td><input type="submit" name="enter" value="进入地下城" /></td>
+            <td>诅咒你入侵者，诅咒你！...</td>
+        </tr>
+    </table>
 </form>
 <form action="data.php" method="POST">
-    <p>副本信息：<input type="submit" name="enter" value="进入数据库" /></p>
+    <table>
+        <tr>
+            <td>查看副本奖励</td>
+            <td><input type="submit" name="enter" value="进入数据库" /></td>
+            <td>你来这里有什么事么？</td>
+        </tr>
+    </table>
 </form>
+</div>
 </div><!--End Of actions-->
-<p class="quit"><a href="logout.php">退出</a></p>
 <?php
     echo '</div><!--End Of main-->'."\n";
 }

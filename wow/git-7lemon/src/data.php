@@ -1,26 +1,26 @@
 <?php
-session_start();
+
 include('common/init.php');
-$title = array(
+$headerData = array(
     'page' => '数据库',
     'h1' => '副本信息',
     'intro' => '副本中的BOSS，以及装备掉落',
     );
-get_header($title);
+get_header($headerData);
 ?>
 <div id="main">
 <div class="data">
 <?php
 $query = "select
-          underground_sheet.underground_id, underground_sheet.name,
-          boss_sheet.boss_id, boss_sheet.boss_name, equipment_sheet.equipment_name,
-          equipment_sheet.power 
-          from underground_sheet, boss_sheet, equipment_sheet, eq_relate
-          where underground_sheet.underground_id = boss_sheet.underground_id 
-	      and boss_sheet.boss_id = eq_relate.boss_id
-	      and equipment_sheet.equipment_id = eq_relate.equipment_id
-          order by underground_sheet.underground_id asc, boss_sheet.boss_id asc,
-          equipment_sheet.equipment_id asc";
+          us.underground_id, us.name,
+          bs.boss_id, bs.boss_name, es.equipment_name,
+          es.power 
+          from underground_sheet as us, boss_sheet as bs, equipment_sheet as es, eq_relate as er
+          where us.underground_id = bs.underground_id 
+	      and bs.boss_id = er.boss_id
+	      and es.equipment_id = er.equipment_id
+          order by us.underground_id asc, bs.boss_id asc,
+          es.equipment_id asc";
 $result = $db->query($query);
 $underground_id = 0;
 $underground_change = FALSE;
@@ -56,6 +56,5 @@ if ($result){
 ?>
 
 </div><!--End Of data-->
-<p class="quit"><a href="index.php">返回首页</a></p>
 </div><!--End Of main-->
 <?php get_footer();?>
